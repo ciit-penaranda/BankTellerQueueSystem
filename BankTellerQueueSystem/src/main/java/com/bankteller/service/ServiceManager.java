@@ -7,13 +7,6 @@ public class ServiceManager {
 
     public ServiceManager() {
         services = new ArrayList<>();
-        
-        // temp list since wla pang db
-        services.add(new Service(1, "Deposit"));
-        services.add(new Service(2, "Withdrawal"));
-        services.add(new Service(3, "Loan Inquiry"));
-        services.add(new Service(4, "Account Opening"));
-        services.add(new Service(5, "Bills Payment"));
     }
 
     public ArrayList<Service> getAllServices() {

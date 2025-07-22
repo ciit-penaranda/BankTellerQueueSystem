@@ -29,7 +29,6 @@ public class ServiceConfigurationUI extends javax.swing.JFrame {
         lblTitle = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblServices = new javax.swing.JTable();
-        btnViewAll = new javax.swing.JButton();
         btnAdd = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
@@ -53,13 +52,6 @@ public class ServiceConfigurationUI extends javax.swing.JFrame {
             tblServices.getColumnModel().getColumn(3).setPreferredWidth(200);
         }
 
-        btnViewAll.setText("View All");
-        btnViewAll.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewAllActionPerformed(evt);
-            }
-        });
-
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,7 +73,7 @@ public class ServiceConfigurationUI extends javax.swing.JFrame {
             }
         });
 
-        btnExit.setText("Exit");
+        btnExit.setText("Back to Dashboard");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
@@ -100,8 +92,6 @@ public class ServiceConfigurationUI extends javax.swing.JFrame {
                 .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnViewAll)
-                        .addGap(18, 18, 18)
                         .addComponent(btnAdd)
                         .addGap(18, 18, 18)
                         .addComponent(btnEdit)
@@ -121,7 +111,6 @@ public class ServiceConfigurationUI extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnViewAll)
                     .addComponent(btnAdd)
                     .addComponent(btnEdit)
                     .addComponent(btnDelete)
@@ -132,21 +121,17 @@ public class ServiceConfigurationUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAllActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnViewAllActionPerformed
-
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
         JTextField nameField = new JTextField();
-        JTextField priorityField = new JTextField();
+        JComboBox<String> priorityComboBox = new JComboBox<>(new String[] {"Urgent", "High", "Medium", "Low"});
         JTextField avgTimeField = new JTextField();
 
         JPanel panel = new JPanel(new GridLayout(0, 1));
         panel.add(new JLabel("Service Name:"));
         panel.add(nameField);
         panel.add(new JLabel("Priority Level:"));
-        panel.add(priorityField);
+        panel.add(priorityComboBox);
         panel.add(new JLabel("Average Service Time (mins):"));
         panel.add(avgTimeField);
 
@@ -156,17 +141,16 @@ public class ServiceConfigurationUI extends javax.swing.JFrame {
 
         if (result == JOptionPane.OK_OPTION) {
             String name = nameField.getText().trim();
-            String priorityText = priorityField.getText().trim();
+            String priority = (String) priorityComboBox.getSelectedItem();
             String avgTimeText = avgTimeField.getText().trim();
 
             // Basic validation
-            if (name.isEmpty() || priorityText.isEmpty() || avgTimeText.isEmpty()) {
+            if (name.isEmpty() || avgTimeText.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "All fields must be filled.");
                 return;
             }
 
             try {
-                int priority = Integer.parseInt(priorityText);
                 int avgTime = Integer.parseInt(avgTimeText);
 
                 // Generate next ID (naive but works)
@@ -177,7 +161,7 @@ public class ServiceConfigurationUI extends javax.swing.JFrame {
                 model.addRow(new Object[]{nextId, name, priority, avgTime});
 
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(this, "Priority and Average Time must be numbers.");
+                JOptionPane.showMessageDialog(this, "Average Service Time must be numbers.");
             }
         }
 
@@ -199,23 +183,41 @@ public class ServiceConfigurationUI extends javax.swing.JFrame {
         String currentAvgTime = model.getValueAt(selectedRow, 3).toString();
 
         JTextField nameField = new JTextField(currentName);
-        JTextField priorityField = new JTextField(currentPriority);
+        JComboBox<String> priorityComboBox = new JComboBox<>(new String[] {"Urgent", "High", "Medium", "Low"});
+        priorityComboBox.setSelectedItem(currentPriority);
         JTextField avgTimeField = new JTextField(currentAvgTime);
 
         JPanel panel = new JPanel(new GridLayout(0, 1));
         panel.add(new JLabel("Service Name:"));
         panel.add(nameField);
         panel.add(new JLabel("Priority Level:"));
-        panel.add(priorityField);
+        panel.add(priorityComboBox);
         panel.add(new JLabel("Average Service Time (mins):"));
         panel.add(avgTimeField);
 
         int result = JOptionPane.showConfirmDialog(this, panel, "Edit Service", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
 
         if (result == JOptionPane.OK_OPTION) {
-            model.setValueAt(nameField.getText(), selectedRow, 1);
-            model.setValueAt(priorityField.getText(), selectedRow, 2);
-            model.setValueAt(avgTimeField.getText(), selectedRow, 3);
+            String name = nameField.getText().trim();
+            String priority = (String) priorityComboBox.getSelectedItem();
+            String avgTimeText = avgTimeField.getText().trim();
+            
+            // Basic validation
+            if (name.isEmpty() || avgTimeText.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "All fields must be filled.");
+                return;
+            }
+            
+            try {
+                int avgTime = Integer.parseInt(avgTimeText);
+                
+                model.setValueAt(name, selectedRow, 1);
+                model.setValueAt(priority, selectedRow, 2);
+                model.setValueAt(avgTime, selectedRow, 3);
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Average Service Time must be numbers.");
+            }
+            
         }
 
     }//GEN-LAST:event_btnEditActionPerformed
@@ -285,7 +287,6 @@ public class ServiceConfigurationUI extends javax.swing.JFrame {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnExit;
-    private javax.swing.JButton btnViewAll;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTable tblServices;

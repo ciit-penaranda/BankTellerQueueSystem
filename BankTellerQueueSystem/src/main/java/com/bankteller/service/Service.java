@@ -7,7 +7,7 @@ public class Service {
     
     private int id;
     private String name;
-    private int priority;
+    private String priority;
     private int avgServiceTime;
 
     public Service(int id, String name) {
@@ -31,11 +31,11 @@ public class Service {
         this.name = name;
     }
 
-    public int getPriority() {
+    public String getPriority() {
         return priority;
     }
 
-    public void setPriority(int priority) {
+    public void setPriority(String priority) {
         this.priority = priority;
     }
 
@@ -45,10 +45,5 @@ public class Service {
 
     public void setAvgServiceTime(int avgServiceTime) {
         this.avgServiceTime = avgServiceTime;
-    }
-    
-    @Override
-    public String toString() {
-        return "Service ID: " + id + " | Service: " + name + " | Priority: " + priority + " | Avg Service Time: " + avgServiceTime + " minutes";
     }
 }
