@@ -31,14 +31,12 @@ public class ServiceConfigUI extends JFrame {
         JButton addBtn = new JButton("Add");
         JButton editBtn = new JButton("Edit");
         JButton deleteBtn = new JButton("Delete");
-        JButton resetBtn = new JButton("Reset Demo Data");
         JButton exitBtn = new JButton("Exit");
 
         buttons.add(viewBtn);
         buttons.add(addBtn);
         buttons.add(editBtn);
         buttons.add(deleteBtn);
-        buttons.add(resetBtn);
         buttons.add(exitBtn);
         add(buttons, BorderLayout.SOUTH);
 
@@ -46,10 +44,6 @@ public class ServiceConfigUI extends JFrame {
         addBtn.addActionListener(e -> handleAdd());
         editBtn.addActionListener(e -> handleEdit());
         deleteBtn.addActionListener(e -> handleDelete());
-        resetBtn.addActionListener(e -> {
-            manager = new ServiceManager(); // reload demo values
-            refreshOutput("Demo data reset.");
-        });
         exitBtn.addActionListener(e -> System.exit(0));
     }
 

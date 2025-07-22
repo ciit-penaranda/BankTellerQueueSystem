@@ -1,16 +1,17 @@
-C:\Users\Rysa\Documents\NetBeansProjects\BankTellerQueueSystem\src\main\java\com\bankteller\analytics\ReportsService.java
-C:\Users\Rysa\Documents\NetBeansProjects\BankTellerQueueSystem\src\main\java\com\bankteller\queue\DBConnetion.java
-C:\Users\Rysa\Documents\NetBeansProjects\BankTellerQueueSystem\src\main\java\com\bankteller\service\Service.java
-C:\Users\Rysa\Documents\NetBeansProjects\BankTellerQueueSystem\src\main\java\com\bankteller\dashboard\AdminDashboard.java
-C:\Users\Rysa\Documents\NetBeansProjects\BankTellerQueueSystem\src\main\java\com\bankteller\analytics\ReportsPanel.java
-C:\Users\Rysa\Documents\NetBeansProjects\BankTellerQueueSystem\src\main\java\com\bankteller\queue\QueueManager.java
-C:\Users\Rysa\Documents\NetBeansProjects\BankTellerQueueSystem\src\main\java\com\bankteller\ui\TellerManagementUI.java
-C:\Users\Rysa\Documents\NetBeansProjects\BankTellerQueueSystem\src\main\java\com\bankteller\service\ServiceManager.java
-C:\Users\Rysa\Documents\NetBeansProjects\BankTellerQueueSystem\src\main\java\com\bankteller\analytics\ReportsTest.java
-C:\Users\Rysa\Documents\NetBeansProjects\BankTellerQueueSystem\src\main\java\com\bankteller\queue\Client.java
-C:\Users\Rysa\Documents\NetBeansProjects\BankTellerQueueSystem\src\main\java\com\bankteller\teller\TellerManager.java
-C:\Users\Rysa\Documents\NetBeansProjects\BankTellerQueueSystem\src\main\java\com\bankteller\ui\ServiceConfigUI.java
-C:\Users\Rysa\Documents\NetBeansProjects\BankTellerQueueSystem\src\main\java\com\bankteller\queue\Status.java
-C:\Users\Rysa\Documents\NetBeansProjects\BankTellerQueueSystem\src\main\java\com\bankteller\ui\QueueManagementUI.java
-C:\Users\Rysa\Documents\NetBeansProjects\BankTellerQueueSystem\src\main\java\com\bankteller\queue\BankTellerQueueSystem.java
-C:\Users\Rysa\Documents\NetBeansProjects\BankTellerQueueSystem\src\main\java\com\bankteller\teller\Teller.java
+E:\GitHub Projects\BankTellerQueueSystem\BankTellerQueueSystem\src\main\java\com\bankteller\analytics\ReportsPanel.java
+E:\GitHub Projects\BankTellerQueueSystem\BankTellerQueueSystem\src\main\java\com\bankteller\analytics\ReportsService.java
+E:\GitHub Projects\BankTellerQueueSystem\BankTellerQueueSystem\src\main\java\com\bankteller\analytics\ReportsTest.java
+E:\GitHub Projects\BankTellerQueueSystem\BankTellerQueueSystem\src\main\java\com\bankteller\dashboard\AdminDashboard.java
+E:\GitHub Projects\BankTellerQueueSystem\BankTellerQueueSystem\src\main\java\com\bankteller\queue\BankTellerQueueSystem.java
+E:\GitHub Projects\BankTellerQueueSystem\BankTellerQueueSystem\src\main\java\com\bankteller\queue\Client.java
+E:\GitHub Projects\BankTellerQueueSystem\BankTellerQueueSystem\src\main\java\com\bankteller\queue\DBConnection.java
+E:\GitHub Projects\BankTellerQueueSystem\BankTellerQueueSystem\src\main\java\com\bankteller\queue\QueueManagementUI.java
+E:\GitHub Projects\BankTellerQueueSystem\BankTellerQueueSystem\src\main\java\com\bankteller\queue\QueueManager.java
+E:\GitHub Projects\BankTellerQueueSystem\BankTellerQueueSystem\src\main\java\com\bankteller\queue\Status.java
+E:\GitHub Projects\BankTellerQueueSystem\BankTellerQueueSystem\src\main\java\com\bankteller\service\Service.java
+E:\GitHub Projects\BankTellerQueueSystem\BankTellerQueueSystem\src\main\java\com\bankteller\service\ServiceConfigUI.java
+E:\GitHub Projects\BankTellerQueueSystem\BankTellerQueueSystem\src\main\java\com\bankteller\service\ServiceConfigurationUI.java
+E:\GitHub Projects\BankTellerQueueSystem\BankTellerQueueSystem\src\main\java\com\bankteller\service\ServiceManager.java
+E:\GitHub Projects\BankTellerQueueSystem\BankTellerQueueSystem\src\main\java\com\bankteller\teller\Teller.java
+E:\GitHub Projects\BankTellerQueueSystem\BankTellerQueueSystem\src\main\java\com\bankteller\teller\TellerManagementUI.java
+E:\GitHub Projects\BankTellerQueueSystem\BankTellerQueueSystem\src\main\java\com\bankteller\teller\TellerManager.java
