@@ -2,10 +2,11 @@ package com.bankteller.service;
 
 import com.bankteller.dashboard.AdminDashboard;
 import java.awt.GridLayout;
+import java.util.ArrayList;
 import javax.swing.*;
 
 public class ServiceConfigurationUI extends javax.swing.JFrame {
-    
+    private ServiceManager manager = new ServiceManager();
     /**
      * Creates new form ServiceConfigurationUI
      */
@@ -15,6 +16,7 @@ public class ServiceConfigurationUI extends javax.swing.JFrame {
         setSize(600, 450);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        loadTableData();
     }
 
     /**
@@ -121,6 +123,16 @@ public class ServiceConfigurationUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void loadTableData() {
+        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) tblServices.getModel();
+        model.setRowCount(0);
+        
+        ArrayList<Service> services = manager.getAllServices();
+        for (Service s : services) {
+            model.addRow(new Object[]{s.getId(), s.getName(), s.getPriority(), s.getAvgServiceTime()});
+        }
+    }
+    
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
         JTextField nameField = new JTextField();
@@ -164,7 +176,7 @@ public class ServiceConfigurationUI extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Average Service Time must be numbers.");
             }
         }
-
+        loadTableData();
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
@@ -219,7 +231,7 @@ public class ServiceConfigurationUI extends javax.swing.JFrame {
             }
             
         }
-
+        loadTableData();
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -235,7 +247,7 @@ public class ServiceConfigurationUI extends javax.swing.JFrame {
             javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) tblServices.getModel();
             model.removeRow(selectedRow);
         }
-
+        loadTableData();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed

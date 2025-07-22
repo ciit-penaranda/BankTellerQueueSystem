@@ -1,10 +1,6 @@
 package com.bankteller.service;
 
-import com.bankteller.queue.*;
-
 public class Service {
-    public DBConnection db = new DBConnection();
-    
     private int id;
     private String name;
     private String priority;
