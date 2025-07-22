@@ -1,7 +1,7 @@
 package com.bankteller.dashboard;
 
 import com.bankteller.teller.TellerManagementUI;
-import com.bankteller.service.ServiceConfigUI;
+import com.bankteller.service.ServiceConfigurationUI;
 import com.bankteller.queue.QueueManagementUI;
 import com.bankteller.analytics.*;
 import com.bankteller.queue.*;
@@ -16,6 +16,7 @@ public class AdminDashboard extends javax.swing.JFrame {
      */
     public AdminDashboard() {
         initComponents();
+        setLocationRelativeTo(null);
         simulateDashboardStats(); // Call method after GUI loads
     }
 
@@ -316,7 +317,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTellerManagementActionPerformed
 
     private void btnServiceConfigurationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnServiceConfigurationActionPerformed
-        new ServiceConfigUI().setVisible(true);
+        new ServiceConfigurationUI().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnServiceConfigurationActionPerformed
 

@@ -1,16 +1,18 @@
 package com.bankteller.service;
 
-import javax.swing.JFrame;
+import com.bankteller.dashboard.AdminDashboard;
+import java.awt.GridLayout;
+import javax.swing.*;
 
 public class ServiceConfigurationUI extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form ServiceConfigurationUI
      */
     public ServiceConfigurationUI() {
         initComponents();
-        setTitle("Service Config - Noah");
-        setSize(600, 400);
+        setTitle("Service Configuration - Noah");
+        setSize(600, 450);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }
@@ -24,22 +26,224 @@ public class ServiceConfigurationUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblTitle = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblServices = new javax.swing.JTable();
+        btnViewAll = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 400));
+
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        lblTitle.setText("Service Configuration");
+
+        tblServices.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Name", "Priority", "Average Service Time"
+            }
+        ));
+        jScrollPane1.setViewportView(tblServices);
+        if (tblServices.getColumnModel().getColumnCount() > 0) {
+            tblServices.getColumnModel().getColumn(3).setPreferredWidth(200);
+        }
+
+        btnViewAll.setText("View All");
+        btnViewAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewAllActionPerformed(evt);
+            }
+        });
+
+        btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+
+        btnEdit.setText("Edit");
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
+
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+
+        btnExit.setText("Exit");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTitle)
+                .addGap(140, 140, 140))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnViewAll)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAdd)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEdit)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDelete)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnExit))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTitle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnViewAll)
+                    .addComponent(btnAdd)
+                    .addComponent(btnEdit)
+                    .addComponent(btnDelete)
+                    .addComponent(btnExit))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAllActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnViewAllActionPerformed
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // TODO add your handling code here:
+        JTextField nameField = new JTextField();
+        JTextField priorityField = new JTextField();
+        JTextField avgTimeField = new JTextField();
+
+        JPanel panel = new JPanel(new GridLayout(0, 1));
+        panel.add(new JLabel("Service Name:"));
+        panel.add(nameField);
+        panel.add(new JLabel("Priority Level:"));
+        panel.add(priorityField);
+        panel.add(new JLabel("Average Service Time (mins):"));
+        panel.add(avgTimeField);
+
+        int result = JOptionPane.showConfirmDialog(
+                this, panel, "Add Service", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE
+        );
+
+        if (result == JOptionPane.OK_OPTION) {
+            String name = nameField.getText().trim();
+            String priorityText = priorityField.getText().trim();
+            String avgTimeText = avgTimeField.getText().trim();
+
+            // Basic validation
+            if (name.isEmpty() || priorityText.isEmpty() || avgTimeText.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "All fields must be filled.");
+                return;
+            }
+
+            try {
+                int priority = Integer.parseInt(priorityText);
+                int avgTime = Integer.parseInt(avgTimeText);
+
+                // Generate next ID (naive but works)
+                javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) tblServices.getModel();
+                int nextId = model.getRowCount() + 1;
+
+                // Add to table
+                model.addRow(new Object[]{nextId, name, priority, avgTime});
+
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Priority and Average Time must be numbers.");
+            }
+        }
+
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblServices.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Please select a row to edit.");
+            return;
+        }
+
+        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) tblServices.getModel();
+
+        // Pre-fill the fields with existing values
+        String currentName = model.getValueAt(selectedRow, 1).toString();
+        String currentPriority = model.getValueAt(selectedRow, 2).toString();
+        String currentAvgTime = model.getValueAt(selectedRow, 3).toString();
+
+        JTextField nameField = new JTextField(currentName);
+        JTextField priorityField = new JTextField(currentPriority);
+        JTextField avgTimeField = new JTextField(currentAvgTime);
+
+        JPanel panel = new JPanel(new GridLayout(0, 1));
+        panel.add(new JLabel("Service Name:"));
+        panel.add(nameField);
+        panel.add(new JLabel("Priority Level:"));
+        panel.add(priorityField);
+        panel.add(new JLabel("Average Service Time (mins):"));
+        panel.add(avgTimeField);
+
+        int result = JOptionPane.showConfirmDialog(this, panel, "Edit Service", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+
+        if (result == JOptionPane.OK_OPTION) {
+            model.setValueAt(nameField.getText(), selectedRow, 1);
+            model.setValueAt(priorityField.getText(), selectedRow, 2);
+            model.setValueAt(avgTimeField.getText(), selectedRow, 3);
+        }
+
+    }//GEN-LAST:event_btnEditActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblServices.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Please select a row to delete.");
+            return;
+        }
+
+        int confirm = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this service?", "Confirm Delete", JOptionPane.YES_NO_OPTION);
+        if (confirm == JOptionPane.YES_OPTION) {
+            javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) tblServices.getModel();
+            model.removeRow(selectedRow);
+        }
+
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        dispose();
+        
+        AdminDashboard adminDashboard = new AdminDashboard();
+        adminDashboard.setVisible(true);
+    }//GEN-LAST:event_btnExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -77,5 +281,13 @@ public class ServiceConfigurationUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnEdit;
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnViewAll;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JTable tblServices;
     // End of variables declaration//GEN-END:variables
 }
